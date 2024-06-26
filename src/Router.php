@@ -37,6 +37,12 @@ class Router
         // Add locale to the host
         $parsed_url['host'] = app()->getLocale() . '.' . $this->getDomain();
 
+        if(function_exists('setAlternativeDomain')){
+            if(setAlternativeDomain()){
+                $parsed_url['host'] = app()->getLocale() . '.' . setAlternativeDomain();
+            }
+        }
+
         return $this->unparseUrl($parsed_url);
     }
 
