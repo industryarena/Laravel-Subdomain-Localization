@@ -142,11 +142,11 @@ class TestCase extends OrchestraTestCase
     /**
      * Checks if the given response contains the given cookie(s)
      *
-     * @param Response $response
+     * @param Response|\Illuminate\Testing\TestResponse $response
      * @param array $cookies
      * @return bool
      */
-    protected function responseHasCookies(Response $response, $cookies)
+    protected function responseHasCookies($response, $cookies)
     {
         $responseCookies = $response->headers->getCookies();
 
